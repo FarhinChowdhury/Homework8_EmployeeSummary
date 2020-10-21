@@ -10,6 +10,81 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+employeeList=[]
+
+async function main(){
+    const managerInfo = await inquirer.prompt([
+        {
+            name:'name',
+            type:'input',
+            message:'What is your manager\'s name?'
+        },
+        {
+            name:'id',
+            type:'number',
+            message:'What is your manager\'s id?'
+        },
+        {
+            name:'email',
+            type:'input',
+            message:'What is your manager\'s email?'
+        },
+        {
+            name:'office',
+            type:'number',
+            message:'What is your manager\'s office number?'
+        },
+        {
+            name:'teamNumber',
+            type:'number',
+            message:'How many members in your team?'
+        }
+
+    ])
+    const managers = new Manager(managerInfo.name,managerInfo.id,managerInfo.email,managerInfo.office)
+    employeeList.push(managers)
+
+
+
+    for(var i = 0;i<managerInfo.teamNumber;i++){
+        const buildTeam = await inquirer.prompt([
+            {name:'role',type:'list',message:'Which type of team member would you like to add?', 
+            choices:["Intern","Engineer"]}
+    
+        ]);
+        if(buildTeam.role=="Intern"){
+            const internInfo= await inquirer.prompt([
+                {name:'name', type:'input',message:'What is your intern\'s name'},
+                {name:'id', type:'input',message:'What is your intern\'s id'},
+                {name:'email', type:'input',message:'What is your intern\'s email'},
+                {name:'school', type:'input',message:'What is your intern\'s school'}
+    
+            ])
+            const interns = new Intern(internInfo.name,internInfo.id,internInfo.email,internInfo.school)
+            console.log(`new Inter:${interns}`)
+            employeeList.push(interns)
+        
+        }
+        else{
+            const engineerInfo= await inquirer.prompt([
+                {name:'name', type:'input',message:'What is your engineer\'s name'},
+                {name:'id', type:'input',message:'What is your engineer\'s id'},
+                {name:'email', type:'input',message:'What is your engineer\'s email'},
+                {name:'github', type:'input',message:'What is your engineer\'s github username'}
+    
+            ])
+            const engineers = new Engineer(engineerInfo.name,engineerInfo.id,engineerInfo.email,engineerInfo.github)
+            console.log(`new Engineer:${engineers}`)
+            employeeList.push(engineers)
+    
+        }
+
+    }
+    const renderInfo = render(employeeList);
+    fs.writeFileSync(outputPath, renderInfo)
+
+}
+main()
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
