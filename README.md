@@ -18,8 +18,8 @@ by: Farhin Chowdhury
 
 ## Images:
 
-![Node_ScreenShot](/assets/Node.png)
-![HTML_ScreenShot](/assets/output_html_screenshot.png)
+![Node_ScreenShot](/Assets/Node.png)
+![HTML_ScreenShot](/Assets/output_html_screenshot.png)
 
 
 
