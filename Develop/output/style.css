@@ -1,0 +1,29 @@
+body{
+    background-color: thistle;
+}
+.team-heading{
+    background-color: rgb(30, 30, 123);
+    color:papayawhip;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size:larger;
+    font-weight: bolder;
+}
+.card-header{
+    background-color: rgba(88, 88, 255, 0.639);
+    justify-content: center;
+    color:cornsilk;
+}
+.card-title{
+    align-content: center;
+    justify-content: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+.card-body{
+    background-color: rgb(254, 254, 169);
+}
+.list-group-item{
+    background-color: antiquewhite;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: larger;
+}
